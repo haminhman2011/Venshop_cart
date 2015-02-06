@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+ <title><%= full_title(yield(:title)) %></title>
+ <%= stylesheet_link_tag 'application', media: 'all',
+ 'data-turbolinks-track' => true %>
+ <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+ <%= csrf_meta_tags %>
+ <%= render 'layouts/shim' %>
+</head>
+<body>
+  <div>
+
+  </div>
+  <%= render 'layouts/header' %>
+  <!-- menu tag -->
+  <div class="menu">
+
+   <ul class="nav nav-tabs menu_top">
+   <% category.each do |cate|%>
+     <li>
+      <%= link_to "#{cate.name}", category_path(cate)%>
+    </li>
+    <%end%>
+  </ul>
+</div>
+
+
+<!--///////////////-->
+
+<div class="container">
+ <% flash.each do |message_type, message| %>
+ <div class="alert alert-<%= message_type %>"><%= message %></div>
+ <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
+ <% end %>
+ <%= yield %>
+
+</div>
+</body>
+</html>

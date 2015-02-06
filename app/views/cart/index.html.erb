@@ -1,0 +1,26 @@
+<%= form_tag root_path do %>
+<table>
+  <tr>
+    <th width="50px">ID</th>
+    <th style="width: 502px;">Name</th>
+    <th>Image</th>
+    <th>Price</th>
+    <th>Quantity</th>
+    <th>Total<th>
+   <!--  <th>Delete</th> -->
+  </tr>
+  <%@products.each do |product|%>
+  <tr>
+    <td><%= product[:product].id %></td>
+    <td><%= product[:product].name %></td>
+    <td><%= image_tag(product[:product].image_url, class: 'img-responsive replace-2x image_cart', alt: 'item') %></td>
+    <td><%= product[:product].formattedprice %></td>
+    <td><%= text_field_tag(:quantity, product[:quantity], size: 2, maxlength: 2)  %></td>
+    <td>$<%= product[:quantity]* (product[:product].amount/100.0) %></td>
+    <td><%= link_to 'Delete',product , method: :delete%></td>
+  </tr>
+  <% end %>
+</table>
+<!--<button type="submit">submit</button>-->
+<%end%>
+

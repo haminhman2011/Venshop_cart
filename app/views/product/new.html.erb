@@ -1,0 +1,26 @@
+<h3><b>Create an product</b></h3>
+<hr>
+<%= form_for @product , url: products_path do |f| %>
+<%= render 'shared/error_messages', object: f.object %>
+  <%= f.label :name %><br>
+  <%= f.text_field :name %><br>
+
+  <%= f.label :amount %><br>
+  <%= f.text_field :amount %><br>
+
+  <%= f.label :currencycode %><br>
+  <%= f.text_field :currencycode %><br>
+
+  <%= f.label :image_url %><br>
+  <%= f.text_field :image_url %><br>
+
+   <%= f.label :description %><br>
+  <%= f.text_field :description %><br>
+
+  <br>
+
+  <%= button_tag(type: 'submit', class: 'MyButton') do %>
+    <i class='glyphicon glyphicon-user'></i> Create an account
+  <% end %>
+
+<%end%>

@@ -1,0 +1,11 @@
+<%= image_tag(@product.img_url, class: 'img-responsive replace-2x', alt: 'item')%>
+<div><b>Name:</b></div>
+<div>
+  <%= @product.name %>
+</div>
+<div><b>Description:</b></div>
+<div>
+  <%= @product.description %>
+</div>
+<div class="price-item-in-tab"><%= @product.formattedprice %></div>
+<button class="add-item-to-cart">add to cart</button>

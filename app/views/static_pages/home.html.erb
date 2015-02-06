@@ -1,0 +1,40 @@
+<!--load products page home -->
+<div class="tab-content items-in-tab ">
+  <ul role="tabpanel" class="tab-pane active row" id="new-arrivals">
+    <div class = "row ">
+      <% if @products.any? %>
+      <% @products.each do |p| %>
+      <li class="col-xs-12 col-sm-4 col-md-3 main_inner" >
+        <%= form_for p, url: add_cart_path do |f| %>
+        <%= image_tag(p.image_url, :class => "image_display img-responsive replace-2x")%>
+        <div class="title-item-in-tab title_item_in_tab_name ">
+          <%= p.name %>
+        </div>
+        <div class="price-item-in-tab"><%= p.formattedprice %></div>
+        <%= hidden_field_tag :id_product, p.id %>
+        <button class="add-item-to-cart">add to cart</button>
+      </li>
+      <% end %>
+      <% end %>
+      <% end %>
+    </div>
+  </ul>
+  <ul role="tabpanel" class="tab-pane" id="popular">...</ul>
+  <ul role="tabpanel" class="tab-pane" id="best-sellers">...</ul>
+</div>
+
+<!--/////////////////////////////////////////////////////////////-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+

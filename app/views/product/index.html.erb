@@ -1,0 +1,24 @@
+<h1>All Products</h1>
+
+<%@products.each do |product|%>
+<p>
+  <b><%= link_to product.name, edit_product_path(product) %></b>
+  <%= link_to image_tag(product.image_url, class: 'img-responsive replace-2x', alt: 'item'), edit_product_path(product) %>
+  <div>
+    <b>Description: </b>
+    <%= product.description %>
+  </div>
+  <div >
+    <b>Price: </b>
+    <%= product.formattedprice%>
+  </div>
+  <div >
+    <% if current_user.admin? %>
+    <%= link_to "delete", product, method: :delete,
+    data: { confirm: "You sure?" } %>
+    <% end %>
+  </div>
+
+</p>
+<% end %>
+<%= will_paginate %>

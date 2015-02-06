@@ -1,0 +1,21 @@
+<h1>UPDATE YOUR PRODUCT</h1>
+<%= form_for @product, url: product_path, method: 'patch' do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <p>
+    <%= image_tag(@product.img_url, class: 'img-responsive replace-2x', alt: 'item')%>
+  </p>
+
+  <%= f.label :name %><br>
+  <%= f.text_area :name, cols: '50'%><br><br>
+
+  <%= f.label :image_url %><br>
+  <%= f.text_field  :image_url, size: '52'%><br><br>
+
+  <%= f.label :description %><br>
+  <%= f.text_area :description, cols:'50'%><br><br>
+
+  <%= f.label :price %><br>
+  <%= f.text_field  :formattedprice, size: '52'%><br><br>
+
+  <%= f.submit :'Save changes' %><br>
+<%end%>
