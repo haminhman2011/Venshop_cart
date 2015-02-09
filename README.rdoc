@@ -1,28 +1,14 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Để chạy được dự án phải thông qua các bước:
 
-Things you may want to cover:
+Bước 1: bundle install
+Bước 2: rake db:create
+Bước 3: rake db:mirgate
+Bước 4: rake db:mirgate:seed
 
-* Ruby version
+Trong thư mục dự án shopping/config/datase.yml . Phải chỉnh lại mật khẩu của mysql trùng với máy đang chạy dự án.
 
-* System dependencies
+Addmin có username: "facebook12636@gmail.com", password: "301464965"
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
