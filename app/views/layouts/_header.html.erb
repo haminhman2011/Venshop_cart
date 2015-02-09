@@ -1,36 +1,35 @@
 <body style="padding-top: 0px;">
   <header class="navbar navbar-inverse">
     <div class="container">
-    <%= link_to(image_tag(src="http://thumbs.dreamstime.com/x/computer-logo-19206799.jpg", style: "width:150px; height: 60px"), root_path, id:"logo") %>
+      <%= link_to(image_tag(src="http://thumbs.dreamstime.com/x/computer-logo-19206799.jpg", style: "width:150px; height: 60px"), root_path, id:"logo") %>
+      <div style="float:right;">
 
 
-      <ul class="nav navbar-nav navbar-right">
+        <ul class="nav navbar-nav navbar-right">
+         <li>  <div class="search">
+          <%= form_tag(search_path , method: "post") do %>
+          <%= text_field_tag(:keyword,'' ,placeholder: "Seaching ....",class: 'input-search') %>
+          <button class="button-search" ,type = "submit">
+           <div class="glyphicon glyphicon-search"></div>
+         </button>
+         <%  end %>
+
+       </div></li>
        <li> <%= link_to "CART", cart_path %>
        </li>
        <li><%= link_to "Home", root_path %></li>
        <% if logged_in? %>
        <li><%= link_to "Users", users_path %></li>
-       <li class="dropdown">
-           <!--  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              Account <b class="caret"></b>
-            </a> -->
-            <!-- <ul class="dropdown-menu">
-              <li><%= link_to "Profile", current_user %></li>
-              <li><%= link_to "Settings", edit_user_path(current_user) %></li>
-              <li class="divider"></li>
+       <li>
+        <%= link_to "Log out", logout_path, method: "delete" %>
+      </li>
+      <% else %>
+      <li><%= link_to "Log in", login_path %></li>
+      <% end %>
+    </ul>
 
-            </ul> -->
-          </li>
-          <li>
-            <%= link_to "Log out", logout_path, method: "delete" %>
-          </li>
-          <% else %>
-          <li><%= link_to "Log in", login_path %></li>
-          <% end %>
-        </ul>
+  </div>
 
-      </div>
+</header>
 
-    </header>
-
-  </body>
+</body>

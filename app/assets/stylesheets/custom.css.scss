@@ -30,7 +30,34 @@ ul{
   float: right;
 }
 
-
+.search{
+  float:right;
+  padding-top:42px;
+  width:auto;
+}
+@media (max-width: 500px) {
+      .search{
+          padding-top:0px;
+    }
+  }
+.input-search{
+  border:0px;
+  width:240px;
+  height:25px;
+  position:inherit;
+}
+.button-search {
+  border:0px ;
+  border-radius:0px ;
+  float:right;
+  height:25px;
+  background-color:white;
+  color:black !important;
+}
+.button-search:hover{
+  background-color: white;
+  color:orange;
+}
 
 
 

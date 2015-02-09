@@ -1,0 +1,16 @@
+<% if !@products.nil? %>
+  <%@products.each do |product|%>
+  <%= form_for product, url: add_cart_path do |f| %>
+    <p>
+      <%= link_to product.name, product %>
+      <%= link_to image_tag(product.image_url, class: 'img-responsive replace-2x', alt: 'item'), product %>
+      <div >
+        <%= product.description %>
+      </div>
+      <div class="price-item-in-tab"><%= product.formattedprice%></div>
+      <%= hidden_field_tag :id_product, product.id %>
+      <button class="add-item-to-cart">add to cart</button>
+    </p>
+  <% end %>
+<% end %>
+<%end%>

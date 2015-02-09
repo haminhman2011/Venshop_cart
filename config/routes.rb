@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-
   get 'product/edit'
 
   get 'product/index'
@@ -36,7 +35,6 @@ get 'login' => 'sessions#new'
 post 'login' => 'sessions#create'
 
 delete 'logout' => 'sessions#destroy'
-
 patch 'edit' => 'users#edit'
 
 patch  'add_cart' => 'sessions#add_cart'
@@ -44,7 +42,8 @@ patch  'add_cart' => 'sessions#add_cart'
 get    'cart'     => 'cart#index'
 
 delete 'cart' => 'cart#destroy'
-
+get 'search' => 'searchs#show'
+post 'search' => 'searchs#search'
 resources :users do
   member do
     get :following, :followers
