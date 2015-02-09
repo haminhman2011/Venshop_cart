@@ -44,6 +44,12 @@ get    'cart'     => 'cart#index'
 delete 'cart' => 'cart#destroy'
 get 'search' => 'searchs#show'
 post 'search' => 'searchs#search'
+
+get 'check_out' => 'cart#new'
+post 'check_out' => 'cart#create'
+
+post 'update' => 'cart#update'
+
 resources :users do
   member do
     get :following, :followers

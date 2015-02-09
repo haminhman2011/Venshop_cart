@@ -1,0 +1,50 @@
+<%= form_tag ({:controller => 'cart', :action => 'create'}) do %>
+<table>
+  <tr>
+    <th width="50px">ID</th>
+    <th style="width: 502px;">Name</th>
+    <th>Image</th>
+    <th>Price</th>
+    <th>Quantity</th>
+    <th>Total<th>
+   <!--  <th>Delete</th> -->
+  </tr>
+  <%@products.each do |product|%>
+  <tr>
+    <td><%= product[:product].id %></td>
+    <td><%= product[:product].name %></td>
+    <td><%= image_tag(product[:product].image_url, class: 'img-responsive replace-2x image_cart', alt: 'item') %></td>
+    <td><%= product[:product].formattedprice %></td>
+    <td><%= product[:quantity] %></td>
+    <td>$<%= product[:quantity].to_i * (product[:product].amount/100.0) %></td>
+  </tr>
+  <% end %>
+</table>
+
+
+<%end%>
+
+<%= form_for @cart , url: check_out_path do |f| %>
+<%= render 'shared/error_messages', object: f.object %>
+<% if !@user.nil? %>
+<%= f.text_field :name, :placeholder => "Name", :value => @user.name %>
+
+<%= f.text_field :email, :placeholder => "Email", :value => @user.email %><br>
+
+<%= f.text_field :phone, :placeholder => "Telephone", :value => @user.phone %><br>
+
+<%= f.text_field :address, :placeholder => "Address", :value => @user.address %><br>
+<% else %>
+<%= f.text_field :name, :placeholder => "Name" %>
+
+<%= f.text_field :email, :placeholder => "Email" %><br>
+
+<%= f.text_field :phone, :placeholder => "Telephone" %><br>
+
+<%= f.text_field :address, :placeholder => "Address" %><br>
+<% end %>
+
+<%= button_tag(type: 'submit', class: 'btn btn-primary') do %>
+<i class='glyphicon glyphicon-user'></i> Submit
+<% end %>
+<%end%>

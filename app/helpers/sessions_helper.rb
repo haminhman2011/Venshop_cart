@@ -1,5 +1,5 @@
 module SessionsHelper
-    def cart
+  def cart
     if session[:cart].nil?
       session[:cart] =  {id_user: 0, products: []}
     else
